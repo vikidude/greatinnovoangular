@@ -1,0 +1,63 @@
+<div style="text-align: center;">
+    <div style="display: inline-block;margin-top: 2.5%;margin-bottom: 5%;">
+        <h2>Create Order</h2>
+        <p>
+            <mat-form-field appearance="outline" [style.width.px]=300>
+                <mat-label>Customer name</mat-label>
+                <input matInput placeholder="Name" [(ngModel)]="order.customer_name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Customer mobile number</mat-label>
+                <input matInput placeholder="Mobile Number" type="number" [(ngModel)]="order.customer_mobile_number">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Customer address</mat-label>
+                <input matInput placeholder="Address" [(ngModel)]="order.address">
+            </mat-form-field>
+        </p>
+        <!-- <p>
+            <mat-form-field appearance="outline" hidden>
+                <mat-label>Order Number</mat-label>
+                <input matInput placeholder="Order Number" type="number" [(ngModel)]="order.order_number">
+
+            </mat-form-field>
+        </p> -->
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Total cost</mat-label>
+                <input matInput placeholder="Total Price" type="number" [(ngModel)]="order.total_cost">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Total items count</mat-label>
+                <input matInput placeholder="Items Count" type="number" [(ngModel)]="order.total_items_count">
+            </mat-form-field>
+        </p>
+        <div *ngFor='let in of counter(order.total_items_count) ;let i = index'>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Item name</mat-label>
+                    <input matInput placeholder="Item Name" [(ngModel)]="item_name[i]">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input matInput placeholder="Price" type="number" [(ngModel)]="item_price[i]">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput placeholder="Quantity" type="number" [(ngModel)]="qty[i]">
+                </mat-form-field>
+            </p>
+        </div>
+        <button mat-raised-button color="primary" (click)="addOrder()">Create</button>
+    </div>
+</div>
